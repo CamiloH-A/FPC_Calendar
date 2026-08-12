@@ -6,4 +6,14 @@ export function healthRoute(app: FastifyInstance): void {
       status: 'UP',
     };
   });
+
+  app.get('/ready', () => {
+    return {
+      status: 'READY',
+    };
+  });
+
+  app.get('/error-test', () => {
+    throw new Error('Test error');
+  });
 }

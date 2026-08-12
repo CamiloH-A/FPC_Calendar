@@ -16,3 +16,11 @@ export async function startServer(app: FastifyInstance): Promise<void> {
     process.exit(1);
   }
 }
+
+export async function stopServer(app: FastifyInstance): Promise<void> {
+  app.log.info('Stopping FPC Calendar API...');
+
+  await app.close();
+
+  app.log.info('FPC Calendar API stopped');
+}
